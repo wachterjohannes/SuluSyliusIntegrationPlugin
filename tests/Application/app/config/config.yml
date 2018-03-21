@@ -9,6 +9,7 @@ imports:
     - { resource: "@SyliusAdminApiBundle/Resources/config/app/config.yml" }
 
     - { resource: "../../../../vendor/sylius/sylius/app/config/security.yml" }
+    - { resource: "@SuluSyliusIntegrationPlugin/Resources/config/app/config.yml" }
 
 framework:
     translator: { fallbacks: ["%locale%", "en"] }
@@ -64,3 +65,11 @@ fos_rest:
 sylius_theme:
     sources:
         test: ~
+
+old_sound_rabbit_mq:
+    connections:
+        default:
+            host: 'localhost'
+            port: 5672
+            user: guest
+            password: guest

@@ -1,0 +1,4 @@
+suites:
+    main:
+        namespace: Sulu\SyliusIntegrationPlugin
+        psr4_prefix: Sulu\SyliusIntegrationPlugin

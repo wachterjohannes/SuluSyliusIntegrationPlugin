@@ -21,6 +21,9 @@ final class AppKernel extends Kernel
 
             new \OldSound\RabbitMqBundle\OldSoundRabbitMqBundle(),
             new \Sulu\SyliusIntegrationPlugin\SuluSyliusIntegrationPlugin(),
+
+            new \Sylius\ShopApiPlugin\ShopApiPlugin(),
+            new \League\Tactician\Bundle\TacticianBundle(),
         ]);
     }
 

@@ -1,5 +1,5 @@
 sylius_shop_checkout_start:
-    path: /{tokenValue}/address
+    path: /{tokenValue}
     methods: [GET]
     defaults:
         _controller: FrameworkBundle:Redirect:redirect
@@ -10,6 +10,7 @@ sylius_shop_checkout_address:
     methods: [GET, PUT]
     defaults:
         _controller: sylius.controller.order:updateAction
+        tokenValue: $tokenValue
         _sylius:
             event: address
             flash: false
@@ -31,6 +32,7 @@ sylius_shop_checkout_select_shipping:
     methods: [GET, PUT]
     defaults:
         _controller: sylius.controller.order:updateAction
+        tokenValue: $tokenValue
         _sylius:
             event: select_shipping
             flash: false
@@ -49,6 +51,7 @@ sylius_shop_checkout_select_payment:
     methods: [GET, PUT]
     defaults:
         _controller: sylius.controller.order:updateAction
+        tokenValue: $tokenValue
         _sylius:
             event: payment
             flash: false
@@ -67,6 +70,7 @@ sylius_shop_checkout_complete:
     methods: [GET, PUT]
     defaults:
         _controller: sylius.controller.order:updateAction
+        tokenValue: $tokenValue
         _sylius:
             event: complete
             flash: false

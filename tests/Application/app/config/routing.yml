@@ -2,5 +2,8 @@ sylius:
     resource: "../../../../vendor/sylius/sylius/app/config/routing.yml"
 
 sulu_sylius_integration:
-    prefix: /checkout
+    prefix: /sulu-checkout
     resource: "@SuluSyliusIntegrationPlugin/Resources/config/routing/routing.yml"
+
+sylius_shop_api:
+    resource: "@ShopApiPlugin/Resources/config/routing.yml"

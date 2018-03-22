@@ -10,6 +10,7 @@ imports:
 
     - { resource: "../../../../vendor/sylius/sylius/app/config/security.yml" }
     - { resource: "@SuluSyliusIntegrationPlugin/Resources/config/app/config.yml" }
+    - { resource: "@ShopApiPlugin/Resources/config/app/config.yml" }
 
 framework:
     translator: { fallbacks: ["%locale%", "en"] }
@@ -59,6 +60,7 @@ fos_rest:
         empty_content: 204
     format_listener:
         rules:
+            - { path: '^/shop-api', priorities: ['json'], fallback_format: json, prefer_extension: true }
             - { path: '^/api', priorities: ['json', 'xml'], fallback_format: json, prefer_extension: true }
             - { path: '^/', stop: true }
 

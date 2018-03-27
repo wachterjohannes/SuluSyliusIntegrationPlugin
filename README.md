@@ -1,13 +1,8 @@
 # Sulu integration plugin
 
-## Installation
+Plugin to connect a Sulu Application with Sylius. 
 
-TODO
+## Working Example
 
-## Testing
-
-TODO
-
-## Usage
-
-TODO
+For a full working example of this application see following meta repository
+https://github.com/wachterjohannes/sulu-sylius-integration

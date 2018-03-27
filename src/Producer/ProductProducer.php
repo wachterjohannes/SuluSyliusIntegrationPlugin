@@ -4,7 +4,7 @@ namespace Sulu\SyliusIntegrationPlugin\Producer;
 
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use OldSound\RabbitMqBundle\RabbitMq\ProducerInterface;
-use Sylius\Component\Product\Model\ProductInterface;
+use Sylius\Component\Core\Model\ProductVariantInterface;
 
 class ProductProducer
 {
@@ -23,12 +23,20 @@ class ProductProducer
 
     public function postPersist(LifecycleEventArgs $event)
     {
-        $product = $event->getEntity();
-        if (!$product instanceof ProductInterface) {
+        $variant = $event->getEntity();
+        if (!$variant instanceof ProductVariantInterface) {
             return;
         }
 
-        $message = serialize(['code' => $product->getCode(), 'name' => $product->getName()]);
+        $message = serialize(
+            [
+                'code' => $variant->getProduct()->getCode(),
+                'name' => $variant->getProduct()->getName(),
+                'variantCode' => $variant->getCode(),
+                'variantName' => $variant->getName(),
+                'price' => $variant->getChannelPricings()->first()->getPrice(),
+            ]
+        );
 
         $this->producer->publish($message);
     }
